@@ -1,0 +1,5 @@
+#! /bin/bash
+
+mkdir -p ~/bin
+ln -s `pwd`/synchronizer.sh ~/bin/
+ln -s `pwd`/gitsync ~/bin/

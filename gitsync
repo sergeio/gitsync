@@ -1,0 +1,28 @@
+#! /bin/bash
+
+function main () {
+    if [ $# = 0 ]; then usage
+    elif [ "$1" = "start" ]; then start
+    elif [ "$1" = "debug" ]; then debug
+    elif [ "$1" = "stop" ]; then stop
+    fi
+}
+
+function usage () {
+    echo "Usage: gitsync start|stop|debug"
+}
+
+function debug () {
+    synchronizer.sh &
+}
+
+function start () {
+    synchronizer.sh 2>&1 > /dev/null &
+}
+
+function stop () {
+# Kills a synchronizer -- may not be the one you intend to kill..
+    pkill synchronizer.sh
+}
+
+main $*
