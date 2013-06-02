@@ -1,6 +1,6 @@
 #! /bin/bash
 
-function main() {
+function main () {
 # Main event loop.
     while sleep 1; do
         if anything_has_changed; then
