@@ -17,7 +17,7 @@ function debug () {
 }
 
 function start () {
-    synchronizer.sh 2>&1 > /dev/null &
+    synchronizer.sh > /dev/null 2>&1 &
 }
 
 function stop () {
