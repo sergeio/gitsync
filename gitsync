@@ -13,11 +13,11 @@ function usage () {
 }
 
 function start () {
-    synchronizer.sh > /dev/null 2>&1 &
+    nohup synchronizer.sh > /dev/null 2>&1 &
 }
 
 function debug () {
-    synchronizer.sh &
+    nohup synchronizer.sh &
 }
 
 function stop () {
