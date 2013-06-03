@@ -1,12 +1,24 @@
 #! /bin/bash
 
 function main () {
-# Main event loop.
+# Spawn 2 event loops -- one to push changes, and one to pull.
+    commit_and_push_loop &
+    pull_loop &
+}
+
+function commit_and_push_loop () {
+# Commits anything changed, and pushes to master.
     while sleep 1; do
         if anything_has_changed; then
             commit_and_push_everything
         fi
-        periodically_pull_changes
+    done
+}
+
+function pull_loop () {
+# Pull from remote every hour.
+    while sleep 60; do
+        git pull origin master
     done
 }
 
@@ -21,13 +33,6 @@ function commit_and_push_everything () {
     git add --all
     git commit --message="Changes: $filenames"
     git push origin master
-}
-
-function periodically_pull_changes () {
-# Do a git-pull if the current time is on the minute (seconds == 0).
-    if [[ $(date +%S) == 00 ]]; then
-        git pull origin master
-    fi
 }
 
 function changed_files () {
