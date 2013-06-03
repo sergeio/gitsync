@@ -1,5 +1,7 @@
 #! /bin/bash
 
 mkdir -p ~/bin
-ln -s `pwd`/synchronizer.sh ~/bin/
-ln -s `pwd`/gitsync ~/bin/
+
+PROJECTDIR=$(cd $(dirname $0); pwd)
+ln -s $PROJECTDIR/synchronizer.sh ~/bin/
+ln -s $PROJECTDIR/gitsync ~/bin/
