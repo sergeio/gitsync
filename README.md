@@ -45,5 +45,3 @@ synchronizer.sh`.  You've been warned.
 
    1. ssh-keys for your git remote.
    2. `~/bin` directory on your `$PATH`.
-
-ooOoooooooooOOOOooOoooOooOOOOOoooOOoOooooOOooOoooooOoOooOoOoOOoOOoOooOOoOOOoooO
