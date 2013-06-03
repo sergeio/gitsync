@@ -8,7 +8,7 @@ function main () {
 
 function commit_and_push_loop () {
 # Commits anything changed, and pushes to master.
-    while sleep 1; do
+    while sleep 5; do
         if anything_has_changed; then
             commit_and_push_everything
         fi
@@ -17,7 +17,7 @@ function commit_and_push_loop () {
 
 function pull_loop () {
 # Pull from remote every hour.
-    while sleep 60; do
+    while sleep 3600; do
         git pull origin master
     done
 }
