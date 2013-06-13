@@ -37,7 +37,7 @@ function commit_and_push_everything () {
 
 function changed_files () {
 # Which files have been modified, or newly added.
-    git ls-files --modified --others --deleted --directory |
+    git ls-files --modified --others --deleted --directory --exclude-standard|
     xargs
 }
 
