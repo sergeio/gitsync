@@ -3,6 +3,7 @@
 function main () {
     if [ $# = 0 ]; then usage
     elif [ "$1" = "start" ]; then start
+    elif [ "$1" = "push" ]; then push
     elif [ "$1" = "debug" ]; then debug
     elif [ "$1" = "stop" ]; then stop
     fi
@@ -14,6 +15,10 @@ function usage () {
 
 function start () {
     nohup synchronizer.sh > /dev/null 2>&1 &
+}
+
+function push () {
+    synchronizer.sh push
 }
 
 function debug () {

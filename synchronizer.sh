@@ -2,8 +2,12 @@
 
 function main () {
 # Spawn 2 event loops -- one to push changes, and one to pull.
-    commit_and_push_loop &
-    pull_loop &
+    if [ $# = 0 ]; then
+        commit_and_push_loop &
+        pull_loop &
+    elif [ "$1" = "push" ]; then
+        commit_and_push_everything
+    fi
 }
 
 function commit_and_push_loop () {
@@ -41,4 +45,4 @@ function changed_files () {
     xargs
 }
 
-main
+main $*
